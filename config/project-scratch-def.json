@@ -1,0 +1,11 @@
+{
+    "orgName": "Google reCAPTCHA",
+    "edition": "Developer",
+    "features": ["Communities"],
+    "settings": {
+        "orgPreferenceSettings": {
+            "networksEnabled": true,
+            "s1DesktopEnabled": true
+        }
+    }
+}

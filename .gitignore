@@ -1,0 +1,14 @@
+.classpath
+.DS_Store
+.sfdx
+.vscode
+.project
+.salesforce
+node_modules
+.idea
+.tern-project
+.settings
+selenium-client-jars/
+test/artifacts
+Referenced Packages/
+salesforce.schema
