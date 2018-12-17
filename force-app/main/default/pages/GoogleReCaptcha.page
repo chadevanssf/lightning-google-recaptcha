@@ -1,0 +1,85 @@
+<!--
+Sourced from: 
+http://www.rightitservices.com/pt/recursos/item/1319-google-recaptcha-v2-in-salesforce-custom-lightning-component
+-->
+<apex:page showHeader="false"> 
+    <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' />
+    
+    <div id="widgetId1" class="g-recaptcha" style="transform: scale(0.74);transform-origin: 0 0;-webkit-transform:scale(0.74);-webkit-transform-origin: 0 0"></div>
+
+    <style>
+        body, div{
+            background:transparent !important;
+        }
+    </style>
+    
+    <script type="text/javascript">
+        /*
+         * Used when reCAPTCHA was clicked on by user in this page
+         */
+        var verifyResponse = function(response) {
+            var hostURL = "https://customer-connect-9256-dev-ed.lightning.force.com";
+            if (response == ""){
+                parent.postMessage(
+                    {
+                        action: "reCaptchaCallingAura",
+                        alohaResponseCAPTCHA: "NOK"
+                    },
+                    hostURL);
+            } else {
+                parent.postMessage(
+                    {
+                        action: "reCaptchaCallingAura",
+                        alohaResponseCAPTCHA: "OK"
+                    },
+                    hostURL
+                );
+            }
+        };
+    
+        var onloadCallback = function() {
+            grecaptcha.render('widgetId1', {
+                'sitekey' : '6LfXgYIUAAAAAG6JWAWN2XUzXvlpkN0hu8y6x1On',
+                'callback' : verifyResponse,
+                'data-size' : 'compact',
+                'data-theme' : 'light'
+            });
+        };
+
+    	/*
+         * Used when submit comes from the LC
+         */
+        window.addEventListener("message", function(event) {
+            var hostURL = "https://customer-connect-9256-dev-ed.lightning.force.com";
+            if(event.origin !== hostURL) {
+                console.log("Unexpected origin from cmp");
+                console.log(event.origin);
+                return;
+            }
+            
+            if(event.data.action === "auraCallingReCaptcha") {  
+                var message = document.getElementById("g-recaptcha-response").value;
+                if (message == ""){
+                    parent.postMessage(
+                        {
+                            action: "auraCallingReCaptcha",
+                            alohaResponseCAPTCHA: "NOK"
+                        },
+                        hostURL
+                    );
+                }
+                else{
+                    parent.postMessage(
+                        { 
+                            action: "auraCallingReCaptcha",
+                            alohaResponseCAPTCHA: "OK"
+                        },
+                        hostURL
+                    );
+                }
+            }
+
+        }, false);
+        
+    </script>
+</apex:page>

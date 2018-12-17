@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <!-- Event -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:registerEvent name="reCaptchaEvent" type="c:GoogleReCaptchaEvent"/>
+
+    <div class="container">
+		<form class="slds-form-stacked">
+            <div class="slds-form-element">
+                <iframe aura:id="vfFrame" src="/apex/GoogleReCaptcha" frameborder="0" width="100%" allowtransparency="true" />
+            </div>
+            
+            <!--<div class="slds-form-element">
+				<ui:button label="Submit"
+                           class="slds-button slds-button-neutral"
+                           labelClass="label"
+                           press="{!c.submitSomething}" />
+            </div>-->
+        </form>
+    </div>
+</aura:component>
