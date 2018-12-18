@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>flowLayout</name>
+                <value>oneColumn</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>flowName</name>
+                <value>GoogleReCaptchaFlow</value>
+            </componentInstanceProperties>
+            <componentName>flowruntime:interview</componentName>
+        </componentInstances>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>hosturl</name>
+                <value>https://customer-connect-9256-dev-ed.lightning.force.com</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>sitekey</name>
+                <value>6LfXgYIUAAAAAG6JWAWN2XUzXvlpkN0hu8y6x1On</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>valid</name>
+                <value>false</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>vfurl</name>
+                <value>https://customer-connect-9256-dev-ed--c.visualforce.com</value>
+            </componentInstanceProperties>
+            <componentName>GoogleReCaptcha</componentName>
+        </componentInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Google reCAPTCHA Page</masterLabel>
+    <template>
+        <name>flexipage:defaultAppHomeTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

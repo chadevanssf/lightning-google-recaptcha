@@ -1,0 +1,6 @@
+<design:component label="Google ReCAPTCHA">
+    <design:attribute name="valid" label="reCAPTCHA is Valid" description="Read Only, used to capture the state of the reCAPTCHA once the user has clicked on it" />
+    <design:attribute name="sitekey" label="Sitekey" description="Google reCAPTCHA Sitekey" />
+    <design:attribute name="hosturl" label="Host (Lightning) Url" description="Base URL for Host (Lightning), form of https://[mydomain].lightning.force.com" />
+    <design:attribute name="vfurl" label="Visualforce Page Url" description="Base URL for Visualforce Page, form of https://[mydomain]--c.visualforce.com" />
+</design:component>

@@ -1,21 +1,17 @@
-<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
-    
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction,lightning:availableForFlowScreens" access="global">
+    <!-- Public -->
+    <aura:attribute name="valid" type="Boolean" default="false" />
+    <aura:attribute name="sitekey" type="String" description="" />
+    <aura:attribute name="hosturl" type="String" description="Example: https://customer-connect-9256-dev-ed.lightning.force.com" />
+    <aura:attribute name="vfurl" type="String" description="Example: https://customer-connect-9256-dev-ed--c.visualforce.com" />
     <!-- Event -->
     <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
-    <aura:registerEvent name="reCaptchaEvent" type="c:GoogleReCaptchaEvent"/>
-
-    <div class="container">
-		<form class="slds-form-stacked">
-            <div class="slds-form-element">
-                <iframe aura:id="vfFrame" src="/apex/GoogleReCaptcha" frameborder="0" width="100%" allowtransparency="true" />
-            </div>
-            
-            <!--<div class="slds-form-element">
-				<ui:button label="Submit"
-                           class="slds-button slds-button-neutral"
-                           labelClass="label"
-                           press="{!c.submitSomething}" />
-            </div>-->
-        </form>
+    
+    <div class="slds-form-element">
+        <iframe aura:id="vfFrame"
+                src="{!'/apex/GoogleReCaptcha?sitekey=' + v.sitekey + '&amp;hosturl=' + v.hosturl}"
+                frameborder="0"
+                width="100%"
+                allowtransparency="true" />
     </div>
 </aura:component>
