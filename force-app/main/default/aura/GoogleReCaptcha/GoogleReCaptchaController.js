@@ -1,6 +1,5 @@
 ({
     doInit: function (component, event, helper) {
-        //example: "https://customer-connect-9256-dev-ed--c.visualforce.com";
         var vfOrigin = component.get("v.vfurl");
         
         window.addEventListener("message", function (event) {

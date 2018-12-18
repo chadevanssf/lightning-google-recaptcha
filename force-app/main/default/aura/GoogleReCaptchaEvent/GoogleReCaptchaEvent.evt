@@ -1,3 +1,0 @@
-<aura:event type="COMPONENT" description="Google reCAPTCHA Event Status">
-    <aura:attribute name="passed" type="Boolean" />
-</aura:event>

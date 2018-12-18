@@ -1,7 +1,3 @@
-<!--
-Sourced from: 
-http://www.rightitservices.com/pt/recursos/item/1319-google-recaptcha-v2-in-salesforce-custom-lightning-component
--->
 <apex:page showHeader="false" controller="GoogleReCaptchaController"> 
     <script src='https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit' />
     
@@ -18,7 +14,6 @@ http://www.rightitservices.com/pt/recursos/item/1319-google-recaptcha-v2-in-sale
          * Used when reCAPTCHA was clicked on by user in this page
          */
         var verifyResponse = function(response) {
-            //example: "https://customer-connect-9256-dev-ed.lightning.force.com";
             var hostURL = "{!hosturl}";
             if (response == ""){
                 parent.postMessage(
@@ -39,7 +34,6 @@ http://www.rightitservices.com/pt/recursos/item/1319-google-recaptcha-v2-in-sale
         };
     
         var onloadCallback = function() {
-            // example "6LfXgYIUAAAAAG6JWAWN2XUzXvlpkN0hu8y6x1Oa"
             grecaptcha.render("widgetId1", {
                 "sitekey" : "{!sitekey}",
                 "callback" : verifyResponse,
